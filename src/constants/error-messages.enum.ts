@@ -9,5 +9,6 @@ export enum ErrorMessages {
     INTERNAL_SERVER_ERROR = "Internal server error",
     NOT_IMPLEMENTED_ERROR = "Not implemented error",
     BAD_GATEWAY_ERROR = "Bad gateway error",
-    SERVICE_UNAVAILABLE_ERROR = "Service unavailable error"
+    SERVICE_UNAVAILABLE_ERROR = "Service unavailable error",
+    BAD_REQUEST = "Bad request",
 }
