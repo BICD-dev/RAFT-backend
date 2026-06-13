@@ -1,0 +1,20 @@
+export enum SuccessMessages {
+    USER_REGISTERED_SUCCESSFULLY = "User registered successfully",
+    USER_LOGGED_IN_SUCCESSFULLY = "User logged in successfully",
+    USER_LOGGED_OUT_SUCCESSFULLY = "User logged out successfully",
+    PASSWORD_RESET_SUCCESSFULLY = "Password reset successfully",
+    PASSWORD_CHANGED_SUCCESSFULLY = "Password changed successfully",
+    PROFILE_UPDATED_SUCCESSFULLY = "Profile updated successfully",
+    EMAIL_VERIFIED_SUCCESSFULLY = "Email verified successfully",
+    ACCOUNT_DELETED_SUCCESSFULLY = "Account deleted successfully",
+    DATA_FETCHED_SUCCESSFULLY = "Data fetched successfully",
+    DATA_UPDATED_SUCCESSFULLY = "Data updated successfully",
+    DATA_DELETED_SUCCESSFULLY = "Data deleted successfully",
+    CLASS_CREATED_SUCCESSFULLY = "Class created successfully",
+    CLASS_UPDATED_SUCCESSFULLY = "Class updated successfully",
+    CLASS_DELETED_SUCCESSFULLY = "Class deleted successfully",
+    STUDENT_ADDED_SUCCESSFULLY = "Student added successfully",
+    STUDENT_REMOVED_SUCCESSFULLY = "Student removed successfully",
+    TEACHER_ADDED_SUCCESSFULLY = "Teacher added successfully",
+    TEACHER_REMOVED_SUCCESSFULLY = "Teacher removed successfully"
+}
