@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne, OneToMany, JoinColumn } from "typeorm";
 import { BaseClass } from "./BaseClass";
-import { Lecturer } from "./Lecturer";
+import { Lecturer } from "./Lecturer.entity";
 import { ClassMember } from "./ClassMember";
 import { AttendanceLink } from "./AttendanceLink";
 

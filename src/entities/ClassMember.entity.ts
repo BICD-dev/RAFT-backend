@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm";
 import { BaseClass } from "./BaseClass";
 import { Class } from "./Class";
-import { Student } from "./Student";
+import { Student } from "./Student.entity";
 
 @Entity()
 export class ClassMember extends BaseClass {
