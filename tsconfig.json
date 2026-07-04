@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                          
+    "module": "commonjs",                        
+    "lib": ["es2022"],                                 
+    "experimentalDecorators": true,                   /* Enable legacy decorator support */
+    "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorators */
+    "strict": true,                                   
+    "esModuleInterop": true,                          
+    "skipLibCheck": true,                             
+    "forceConsistentCasingInFileNames": true         
+  }
+}

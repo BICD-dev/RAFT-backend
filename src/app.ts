@@ -2,7 +2,6 @@ import express from "express";
 import errorHandler from "./utils/middleware/error-handler.service";
 import cors from "cors";
 import helmet from "helmet";
-
 const app = express();
 
 // Middleware
