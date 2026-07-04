@@ -1,31 +1,27 @@
-import { Entity, Column, ManyToOne, OneToMany, JoinColumn } from "typeorm";
-import { BaseClass } from "./BaseClass";
-import { Lecturer } from "./Lecturer.entity";
-import { ClassMember } from "./ClassMember";
-import { AttendanceLink } from "./AttendanceLink";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+import { BaseClass } from "./BaseClass.entity";
+import { Course } from "./Course.entity";
+import { ClassSession } from "./ClassSession.entity";
 
 @Entity()
-export class Class extends BaseClass {
+export class Class extends BaseClass{
     @Column()
-    name!: string;
+    course_id!:string;
 
-    @Column({ nullable: true })
-    description?: string;
-
-    @Column({ default: 0 })
-    classCount!: number;
-
-    // ── Relations ───────────────────────────────────────────────
     @Column()
-    lecturer_id!: string;
+    start_time!:Date;
+    
+    @Column()
+    end_time!:Date;
 
-    @ManyToOne(() => Lecturer, (lecturer) => lecturer.classes)
-    @JoinColumn({ name: "lecturer_id" })
-    lecturer!: Lecturer;
+    @Column({ default: false })
+    recurring!:boolean;
 
-    @OneToMany(() => ClassMember, (cm) => cm.class)   // one class → many junction rows
-    classMembers!: ClassMember[];
+    // Relations
+    @ManyToOne(() => Course, (course) => course.class)   // many classes → one course
+    @JoinColumn({ name: "course_id" })
+    course!: Course;
 
-    @OneToMany(() => AttendanceLink, (link) => link.class)
-    attendanceLinks!: AttendanceLink[];
+    @OneToMany(() => ClassSession, (session) => session.class)   // one class → many sessions
+    sessions!: ClassSession[];
 }

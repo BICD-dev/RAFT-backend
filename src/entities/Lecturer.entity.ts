@@ -1,6 +1,6 @@
 import { Entity, Column, OneToMany } from "typeorm";
-import { BaseClass } from "./BaseClass";
-import { Class } from "./Class";
+import { BaseClass } from "./BaseClass.entity";
+import { Course } from "./Course.entity";
 
 @Entity()
 export class Lecturer  extends BaseClass {
@@ -16,6 +16,6 @@ export class Lecturer  extends BaseClass {
     @Column()
     password!:string;
 
-    @OneToMany(() => Class, (cls) => cls.lecturer)
-    classes!: Class[];
+    @OneToMany(() => Course, (course) => course.lecturer)
+    Courses!: Course[];
 }

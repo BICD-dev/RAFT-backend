@@ -1,31 +1,35 @@
-import { Entity, Column, PrimaryColumn, OneToMany, JoinColumn } from "typeorm";
-import { BaseClass } from "./BaseClass";
-import { ClassMember } from "./ClassMember";
+import { Entity, Unique, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
+import { BaseClass } from "./BaseClass.entity";
+import { Course } from "./Course.entity";
+import { AttendanceRecord } from "./AttendanceRecord.entity";
 
 @Entity()
+@Unique(["course_id", "member_id"])
+@Unique(["course_id", "email"])
+
 export class Student extends BaseClass {
-    //  Composite Primary Key 
-    @PrimaryColumn()
-    class_id!: string;
+    @Column()
+    course_id!: string;
 
-    @PrimaryColumn()
-    member_id!: string;
+    @Column()
+    member_id!: string;   // matric number, unique within the course
 
-    //  Fields 
+    @Column()
+    email!: string;       // email, unique within the course
+
     @Column()
     firstName!: string;
 
     @Column()
     lastName!: string;
 
-    @Column({ unique: true })
-    email!: string;
-
-    // this actve status is seperate from the class members active status
     @Column({ default: true })
-    isActive!: boolean;           
+    isActive!: boolean;
 
-    // ── Relations 
-    @OneToMany(() => ClassMember, (cm) => cm.student)
-    classMembers!: ClassMember[];
+    @ManyToOne(() => Course, (course) => course.students)
+    @JoinColumn({ name: "course_id" })
+    course!: Course;
+
+    @OneToMany(() => AttendanceRecord, (ar) => ar.student)
+    attendanceRecords!: AttendanceRecord[];
 }

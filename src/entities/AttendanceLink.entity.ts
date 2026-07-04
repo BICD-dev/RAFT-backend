@@ -1,20 +1,23 @@
 import { Entity, Column, ManyToOne, JoinColumn } from "typeorm";
-import { BaseClass } from "./BaseClass";
-import { Class } from "./Class";
+import { BaseClass } from "./BaseClass.entity";
+import { ClassSession } from "./ClassSession.entity";
 
 @Entity()
 export class AttendanceLink extends BaseClass {
-    @Column({ nullable: true })
-    url?: string;
+    @Column()
+    url!: string;
 
     @Column({ default: true })
     isActive!: boolean;
 
-    // ── Relations 
     @Column()
-    class_id!: string;
+    session_id!: string;
 
-    @ManyToOne(() => Class, (cls) => cls.attendanceLinks)
-    @JoinColumn({ name: "class_id" })
-    class!: Class;
+    // expiresAt is inherited from BaseClass and can be used to set the expiration time for the attendance link.
+
+    // ── Relations ──────────────────────────────────────────────
+    @ManyToOne(() => ClassSession, (cls) => cls.attendanceLinks)
+    @JoinColumn({ name: "session_id" })
+    session!: ClassSession;
+
 }
