@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, Column } from "typeorm";
+import { PrimaryGeneratedColumn, Column, DeleteDateColumn } from "typeorm";
 
 export abstract class BaseClass {
     @PrimaryGeneratedColumn("uuid")
@@ -10,7 +10,7 @@ export abstract class BaseClass {
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP", onUpdate: "CURRENT_TIMESTAMP" })
     updatedAt!: Date;
 
-    @Column({ type: "timestamp", nullable: true })
+    @DeleteDateColumn()
     deletedAt?: Date;
 
     @Column({ type: "timestamp", nullable: true })
