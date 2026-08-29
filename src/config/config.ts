@@ -10,5 +10,9 @@ export const config = {
         password: process.env.DB_PASSWORD || "password",
         name: process.env.DB_NAME || "mydb",
     },
+    jwt: {
+        secret: process.env.JWT_SECRET || "change-me-in-production",
+        expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+    },
 };
 
