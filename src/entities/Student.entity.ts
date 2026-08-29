@@ -2,6 +2,7 @@ import { Entity, Unique, Column, ManyToOne, JoinColumn, OneToMany } from "typeor
 import { BaseClass } from "./BaseClass.entity";
 import { Course } from "./Course.entity";
 import { AttendanceRecord } from "./AttendanceRecord.entity";
+import { StudentFace } from "./StudentFace.entity";
 
 @Entity()
 @Unique(["course_id", "member_id"])
@@ -32,4 +33,7 @@ export class Student extends BaseClass {
 
     @OneToMany(() => AttendanceRecord, (ar) => ar.student)
     attendanceRecords!: AttendanceRecord[];
+
+    @OneToMany(() => StudentFace, (face) => face.student)
+    faces!: StudentFace[];
 }
