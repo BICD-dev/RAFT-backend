@@ -29,7 +29,7 @@ export class CourseRepository {
     }
 
     // get course by id
-    async getById(id: string): Promise<Course | null> {
+    async findById(id: string): Promise<Course | null> {
         return this.course.findOne({where: { id }});
     }
 

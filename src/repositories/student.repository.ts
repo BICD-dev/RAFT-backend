@@ -30,12 +30,12 @@ export class StudentRepository {
     }
 
     // get student by id
-    async getById(id: string): Promise<Student | null> {
+    async findById(id: string): Promise<Student | null> {
         return this.student.findOne({where: { id }});
     }
 
     // get student by conditions
-    async getByConditions(conditions: Partial<Pick<Student, "email" | "firstName" | "lastName" | "member_id">>): Promise<Student | null> {
+    async findOne(conditions: Partial<Pick<Student, "email" | "firstName" | "lastName" | "member_id">>): Promise<Student | null> {
         return this.student.findOne({ where: conditions });
     }
 

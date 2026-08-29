@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Lecturer } from "../entities/Lecturer.entity";
-import { IRepository } from "./interface/IRepository";
+// import { IRepository } from "./interface/IRepository";
 
 export class LecturerRepository {
     private readonly lecturer: Repository<Lecturer>;
@@ -27,12 +27,12 @@ export class LecturerRepository {
     }
 
     // read lecturer
-    async getById(id: string): Promise<Lecturer | null> {
+    async findById(id: string): Promise<Lecturer | null> {
         return this.lecturer.findOne({where: { id }});
     }
     
      // get lecturer by conditions
-    getByConditions(conditions: Partial<Pick<Lecturer, "email" | "firstName" | "lastName">>): Promise<Lecturer | null> {
+    async findOne(conditions: Partial<Pick<Lecturer, "email" | "firstName" | "lastName">>): Promise<Lecturer | null> {
         return this.lecturer.findOne({ where: conditions });
     }
 

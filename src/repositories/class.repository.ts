@@ -26,7 +26,7 @@ export class ClassRepository {
     }
 
     // get class by id
-    async getById(id: string): Promise<Class | null> {
+    async findById(id: string): Promise<Class | null> {
         return this.class.findOne({ where: { id } });
     }
 
