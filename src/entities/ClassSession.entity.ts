@@ -8,14 +8,14 @@ export class ClassSession extends BaseClass {
     @Column()
     class_id!: string;
 
-    @Column({ unique: true })
+    @Column({ unique: true })// purpose of the code is so that the session can be easily identified and referenced in the system, especially when dealing with recurring sessions or when a session needs to be regenerated. It serves as a unique identifier for each session instance. different from the id field inherited from BaseClass, which is a UUID and serves as the primary key for the ClassSession entity in the database. The code field is more of a business logic identifier, while the id field is a technical identifier used by the database.
     code!: string;   // cuid, generated at session creation in the service layer; overwritten on regeneration
 
     @Column({ default: true })
     isActive!: boolean;
 
     @Column()
-    date!: Date;
+    date!: Date; // the date of the session, used to determine which session is currently active in the system
 
     // Overrides the parent Class's start_time for this specific occurrence —
     // used when a session is rescheduled or run at a different time than

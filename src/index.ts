@@ -4,7 +4,7 @@ import { databaseService } from "./utils/database";
 import "reflect-metadata";
 
 dotenv.config();
-
+// get this from config later
 const PORT = process.env.PORT || 3000;
 
 const start = async () => {
