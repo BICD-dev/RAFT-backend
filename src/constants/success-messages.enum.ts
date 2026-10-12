@@ -13,6 +13,8 @@ export enum SuccessMessages {
     CLASS_CREATED_SUCCESSFULLY = "Class created successfully",
     CLASS_UPDATED_SUCCESSFULLY = "Class updated successfully",
     CLASS_DELETED_SUCCESSFULLY = "Class deleted successfully",
+    CLASS_FETCHED_SUCCESSFULLY = "Class fetched successfully",
+    CLASSES_RETRIEVED_SUCCESSFULLY = "Classes retrieved successfully",
     STUDENT_ADDED_SUCCESSFULLY = "Student added successfully",
     STUDENT_REMOVED_SUCCESSFULLY = "Student removed successfully",
     TEACHER_ADDED_SUCCESSFULLY = "Teacher added successfully",
