@@ -39,6 +39,21 @@ export class StudentRepository {
         return this.student.findOne({ where: conditions });
     }
 
+    // get all students enrolled in a course
+    async findCourseStudents(courseId: string): Promise<Student[]> {
+        return this.student.find({ where: { course_id: courseId } });
+    }
+
+    // get a student by member id within a course
+    async findByCourseMemberId(courseId: string, memberId: string): Promise<Student | null> {
+        return this.student.findOne({ where: { course_id: courseId, member_id: memberId } });
+    }
+
+    // get a student by email within a course
+    async findByCourseEmail(courseId: string, email: string): Promise<Student | null> {
+        return this.student.findOne({ where: { course_id: courseId, email } });
+    }
+
     // update student
     async update(id: string, data: Partial<Pick<Student, "firstName" | "lastName" | "email" | "member_id">>): Promise<Student | null> {
         const student = await this.student.findOne({where: { id }});

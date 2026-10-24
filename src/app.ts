@@ -5,6 +5,7 @@ import helmet from "helmet";
 import authRouter from "./auth/auth.route";
 import courseRouter from "./course/course.route";
 import classRouter from "./class/class.route";
+import studentRouter from "./student/student.route";
 const app = express();
 
 // Middleware
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRouter);
 app.use("/api/courses", courseRouter)
 app.use("/api/classes", classRouter);
+app.use("/api/students", studentRouter);
 
 // Error handling middleware
 app.use(errorHandler);
